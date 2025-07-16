@@ -1,61 +1,249 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel 12 JWT Authentication API
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="https://img.shields.io/badge/Laravel-12.x-red.svg" alt="Laravel Version">
+<img src="https://img.shields.io/badge/PHP-8.2+-blue.svg" alt="PHP Version">
+<img src="https://img.shields.io/badge/JWT-Auth-green.svg" alt="JWT Auth">
+<img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
 </p>
 
-## About Laravel
+## 📋 À propos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Ce projet est une API d'authentification robuste construite avec **Laravel 12** utilisant **JWT (JSON Web Tokens)** pour l'authentification sécurisée. Il fournit un système complet d'inscription, connexion, déconnexion et gestion des tokens avec des middlewares personnalisés pour la protection des routes.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fonctionnalités
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- 🔐 **Authentification JWT complète** avec php-open-source-saver/jwt-auth
+- 👤 **Inscription et connexion des utilisateurs**
+- 🔄 **Rafraîchissement automatique des tokens**
+- 🚪 **Déconnexion sécurisée avec invalidation des tokens**
+- 🛡️ **Middlewares personnalisés** pour la protection des routes
+- ✅ **Validation robuste des données**
+- 🚦 **Gestion d'erreurs appropriée**
+- 📱 **Réponses JSON structurées**
 
-## Learning Laravel
+## 🛠️ Technologies utilisées
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Laravel 12.x** - Framework PHP
+- **PHP 8.2+** - Langage de programmation
+- **JWT Auth** - Authentification par tokens
+- **MySQL** - Base de données (configurable)
+- **Composer** - Gestionnaire de dépendances PHP
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📦 Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Prérequis
 
-## Laravel Sponsors
+- PHP 8.2 ou supérieur
+- Composer
+- MySQL ou autre base de données supportée
+- Extension PHP : OpenSSL, PDO, Mbstring, Tokenizer, XML, Ctype, JSON
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Étapes d'installation
 
-### Premium Partners
+1. **Cloner le repository**
+```bash
+git clone https://github.com/anwar-bouchehboun/Auth_Jwt_Laravel12.git
+cd Auth_Jwt_Laravel12
+```
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+2. **Installer les dépendances**
+```bash
+composer install
+```
 
-## Contributing
+3. **Configurer l'environnement**
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. **Configurer la base de données**
+Éditer le fichier `.env` avec vos paramètres de base de données :
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel_jwt
+DB_USERNAME=votre_username
+DB_PASSWORD=votre_password
+```
 
-## Code of Conduct
+5. **Générer la clé JWT**
+```bash
+php artisan jwt:secret
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. **Exécuter les migrations**
+```bash
+php artisan migrate
+```
 
-## Security Vulnerabilities
+7. **Lancer le serveur de développement**
+```bash
+php artisan serve
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+L'API sera accessible à l'adresse : `http://localhost:8000`
 
-## License
+## 🚀 Utilisation de l'API
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Endpoints disponibles
+
+#### Routes publiques
+
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| POST | `/api/auth/register` | Inscription d'un nouvel utilisateur |
+| POST | `/api/auth/login` | Connexion utilisateur |
+
+#### Routes protégées (JWT requis)
+
+| Méthode | Endpoint | Description |
+|---------|----------|-------------|
+| GET | `/api/auth/me` | Obtenir les informations de l'utilisateur connecté |
+| POST | `/api/auth/logout` | Déconnexion et invalidation du token |
+| POST | `/api/auth/refresh` | Rafraîchir le token JWT |
+
+### 📋 Exemples d'utilisation
+
+#### 1. Inscription
+```bash
+POST /api/auth/register
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "motdepasse123"
+}
+```
+
+**Réponse :**
+```json
+{
+    "status": "success",
+    "message": "User registered successfully",
+    "user": {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "created_at": "2025-01-16T10:30:00.000000Z"
+    },
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...",
+    "token_type": "bearer",
+    "expires_in": 3600
+}
+```
+
+#### 2. Connexion
+```bash
+POST /api/auth/login
+Content-Type: application/json
+
+{
+    "email": "john@example.com",
+    "password": "motdepasse123"
+}
+```
+
+#### 3. Accès aux routes protégées
+```bash
+GET /api/auth/me
+Authorization: Bearer {votre_token_jwt}
+```
+
+#### 4. Rafraîchir le token
+```bash
+POST /api/auth/refresh
+Authorization: Bearer {votre_token_jwt}
+```
+
+#### 5. Déconnexion
+```bash
+POST /api/auth/logout
+Authorization: Bearer {votre_token_jwt}
+```
+
+## ⚙️ Configuration
+
+### Configuration JWT
+
+Le fichier `config/jwt.php` contient toutes les configurations JWT. Paramètres principaux :
+
+- **TTL (Time To Live)** : Durée de vie du token (par défaut : 60 minutes)
+- **Refresh TTL** : Durée pendant laquelle un token peut être rafraîchi
+- **Algorithme** : Algorithme de chiffrement utilisé (HS256 par défaut)
+
+### Variables d'environnement importantes
+
+```env
+JWT_SECRET=votre_cle_secrete_jwt
+JWT_TTL=60
+JWT_REFRESH_TTL=20160
+AUTH_GUARD=api
+```
+
+## 🔒 Sécurité
+
+- ✅ Validation stricte des données d'entrée
+- ✅ Hashage sécurisé des mots de passe avec bcrypt
+- ✅ Protection contre les attaques CSRF pour les routes API
+- ✅ Expiration automatique des tokens JWT
+- ✅ Invalidation des tokens lors de la déconnexion
+- ✅ Middleware de protection contre l'accès des utilisateurs déjà authentifiés
+
+## 🧪 Tests
+
+Exécuter les tests :
+```bash
+php artisan test
+```
+
+## 📁 Structure du projet
+
+```
+app/
+├── Http/
+│   ├── Controllers/
+│   │   └── AuthController.php
+│   └── Middleware/
+│       ├── JwtMiddleware.php
+│       └── PreventAuthenticatedAccess.php
+├── Models/
+│   └── User.php
+config/
+├── auth.php
+├── jwt.php
+routes/
+└── api.php
+```
+
+## 🤝 Contribution
+
+Les contributions sont les bienvenues ! Pour contribuer :
+
+1. Fork le projet
+2. Créez une branche pour votre fonctionnalité (`git checkout -b feature/AmazingFeature`)
+3. Committez vos changements (`git commit -m 'Add some AmazingFeature'`)
+4. Push vers la branche (`git push origin feature/AmazingFeature`)
+5. Ouvrez une Pull Request
+
+## 📝 License
+
+Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
+
+## 👨‍💻 Auteur
+
+**Anwar Bouchehboun**
+- GitHub: [@anwar-bouchehboun](https://github.com/anwar-bouchehboun)
+
+## 🆘 Support
+
+Si vous rencontrez des problèmes ou avez des questions, n'hésitez pas à :
+- Ouvrir une [issue](https://github.com/anwar-bouchehboun/Auth_Jwt_Laravel12/issues)
+- Contacter l'auteur
+
+---
+
+⭐ N'oubliez pas de donner une étoile au projet si vous l'avez trouvé utile !

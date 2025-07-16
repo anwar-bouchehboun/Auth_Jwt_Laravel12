@@ -26,7 +26,7 @@ Route::group([
 ], function () {
     // Routes publiques (avec protection contre les utilisateurs déjà connectés)
     Route::post('/register', [AuthController::class, 'register'])->name('auth.register')->middleware('guest');
-    Route::post('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
+    Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
 
     // Routes protégées
     Route::middleware('jwt')->group(function () {
